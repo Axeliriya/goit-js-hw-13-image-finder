@@ -17,7 +17,7 @@ function searchImage(event) {
   containerGallery.innerHTML = '';
   apiService.page = 1;
   if (searchQuery !== '') {
-    apiService.getFetch(searchQuery).then(({ hits }) => getList(hits));
+    updateMarkup();
     buttonMore.classList.remove('is-hidden');
   } else {
     buttonMore.classList.add('is-hidden');
@@ -25,13 +25,16 @@ function searchImage(event) {
 }
 
 function getMoreBtn() {
+  updateMarkup();
+}
+
+function updateMarkup() {
   apiService.getFetch(searchQuery).then(({ hits }) => {
     getList(hits);
     window.scrollTo({
-      top: document.body.offsetHeight,
+      top: document.documentElement.offsetHeight,
       behavior: 'smooth',
     });
-    console.dir(document);
   });
 }
 
