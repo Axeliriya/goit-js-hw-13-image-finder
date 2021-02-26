@@ -1,3 +1,5 @@
+import { fall } from './notifications';
+
 const apiService = {
   apiKey: '20161669-2a892b4c586ef08617ab50d2d',
   page: 1,
